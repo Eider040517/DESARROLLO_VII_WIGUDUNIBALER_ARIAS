@@ -7,15 +7,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $datos = [];
 
     // Procesar y validar cada campo
-    $campos = ['nombre', 'email', 'edad', 'sitio_web', 'genero', 'intereses', 'comentarios'];
+    $campos = ['nombre', 'email', 'edad', 'sitioWeb', 'genero', 'intereses', 'comentarios'];
     foreach ($campos as $campo) {
         if (isset($_POST[$campo])) {
             $valor = $_POST[$campo];
             $valorSanitizado = call_user_func("sanitizar" . ucfirst($campo), $valor);
             $datos[$campo] = $valorSanitizado;
 
+
             if (!call_user_func("validar" . ucfirst($campo), $valorSanitizado)) {
-                $errores[] = "El campo $campo no es válido.";
+                $errores[] = "El campo $campo no es válido. $valor";
             }
         }
     }
@@ -34,24 +35,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Mostrar resultados o errores
-    if (empty($errores)) {
-        echo "<h2>Datos Recibidos:</h2>";
-        foreach ($datos as $campo => $valor) {
-            if ($campo === 'intereses') {
-                echo "$campo: " . implode(", ", $valor) . "<br>";
-            } elseif ($campo === 'foto_perfil') {
-                echo "$campo: <img src='$valor' width='100'><br>";
-            } else {
-                echo "$campo: $valor<br>";
-            }
+    // Modificar la sección de mostrar resultados
+if (empty($errores)) {
+    echo "<h2>Datos Recibidos:</h2>";
+    echo "<table border='1'>";
+    foreach ($datos as $campo => $valor) {
+        echo "<tr>";
+        echo "<th>" . ucfirst($campo) . "</th>";
+        if ($campo === 'intereses') {
+            echo "<td>" . implode(", ", $valor) . "</td>";
+        } elseif ($campo === 'foto_perfil') {
+            echo "<td><img src='$valor' width='100'></td>";
+        } else {
+            echo "<td>$valor</td>";
         }
-    } else {
-        echo "<h2>Errores:</h2>";
-        foreach ($errores as $error) {
-            echo "$error<br>";
-        }
+        echo "</tr>";
     }
+    echo "</table>";
+} else {
+    echo "<h2>Errores:</h2>";
+    echo "<ul>";
+    foreach ($errores as $error) {
+        echo "<li>$error</li>";
+    }
+    echo "</ul>";
+}
+
+echo "<br><a href='formulario.html'>Volver al formulario</a>";
+
+
 } else {
     echo "Acceso no permitido.";
 }

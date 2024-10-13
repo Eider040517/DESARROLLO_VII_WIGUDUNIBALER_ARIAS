@@ -7,7 +7,10 @@ function validarEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-function validarEdad($edad) {
+function validarEdad($fechaNacimiento) {
+    $fecha_actual = new DateTime();
+    $fechaNacimiento = new DateTime($fechaNacimiento);
+    $edad = $fecha_actual->diff($fechaNacimiento)->y;
     return is_numeric($edad) && $edad >= 18 && $edad <= 120;
 }
 
