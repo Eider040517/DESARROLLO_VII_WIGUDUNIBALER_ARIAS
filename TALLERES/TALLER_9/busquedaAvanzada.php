@@ -1,5 +1,7 @@
 
 <?php
+require_once "config_pdo.php";
+
 class QueryBuilder {
     private $pdo;
     private $table;
