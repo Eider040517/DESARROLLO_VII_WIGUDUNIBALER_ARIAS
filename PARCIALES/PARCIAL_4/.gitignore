@@ -1,0 +1,22 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración sensibles
+.env
+.env.local
+.env.*.local
+
+# Dependencias (vendor)
+vendor/
+
+# Archivos de configuración sensibles
+.env
+.env.local
+.env.*.local
+
+# Dependencias (vendor)
+vendor/
+
+#Client Secret
+Client_secret.json

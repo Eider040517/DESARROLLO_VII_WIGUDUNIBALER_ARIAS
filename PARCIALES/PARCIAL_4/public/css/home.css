@@ -1,0 +1,117 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4e5d0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #f8f3ed;
+      padding: 20px;
+      border-radius: 20px;
+      width: 90%;
+      height: 80%;
+      max-width: 1500px;
+
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      color: #4b3d33;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-button {
+      background-color: #e8d1a0;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #4b3d33;
+    }
+
+    .search-bar {
+      width: 50%;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      width: 100%;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+    }
+
+  /* Section Trend*/
+    .trending-section {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .trending-book {
+      width: 300px;
+    }
+
+    .trending-book img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    
+
+    .books-list {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+
+    .book-item {
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 150px;
+      text-align: center;
+    }
+
+    .book-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .book-item button {
+      margin-top: 10px;
+      background-color: #f7c57c;
+      border: none;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
